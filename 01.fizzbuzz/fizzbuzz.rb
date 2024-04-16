@@ -1,14 +1,14 @@
 #!/usr/bin/env ruby
 
 range = 1..20
-range.each do |num|
-    if num % 15 == 0
+range.each do |i|
+    if i % 15 == 0
         puts 'FizzBuzz'
-    elsif num % 5 == 0
+    elsif i % 5 == 0
         puts 'Buzz'
-    elsif num % 3 == 0
+    elsif i % 3 == 0
         puts 'Fizz'
     else
-        puts num
+        puts i
     end
 end
