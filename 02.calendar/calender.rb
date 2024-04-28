@@ -49,7 +49,5 @@ print "   " * first_day.wday
 (first_day..last_day).each do |date|
   print date.day.to_s.rjust(date_width) + " "
   # 土曜日または最終日の場合は改行する
-  if date.wday == 6 || date == last_day
-    puts "\n"
-  end
+  puts "\n" if date.saturday? || date == last_day
 end
