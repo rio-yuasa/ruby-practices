@@ -27,15 +27,13 @@ frames.each.with_index(1) do |frame, i|
   point += frame.sum
   next if frame.sum != 10 || i >= 10
 
-  point += if i < 10 && frame[0] == 10 # strike
-             if i < 9 && frames[i][0] == 10
-               10 + frames[i + 1][0]
-             elsif i == 9 && frames[i][0] == 10
-               10 + frames[i][2]
+  point += if frame[0] == 10 # strike
+             if frames[i][0] == 10
+               10 + (i < 9 ? frames[i + 1][0] : frames[i][2])
              else
                frames[i][0] + frames[i][1]
              end
-           elsif i < 10 && frame.sum == 10 # spare
+           else # spare
              frames[i][0]
            end
 end
